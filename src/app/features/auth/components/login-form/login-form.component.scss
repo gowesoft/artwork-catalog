@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
+}
+
+.login-form .p-fieldset {
+  border: none;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.login-form .p-fluid {
+  width: 100%;
+}
+
+.login-form .p-field {
+  margin-bottom: 1em;
+}
+
+.login-form .p-button {
+  width: 100%;
+
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
+}

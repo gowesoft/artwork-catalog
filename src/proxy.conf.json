@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://fake-api.com",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/cd8befaf-9119-4379-b065-7845a416dc41/api"
+    }
+  }
+}

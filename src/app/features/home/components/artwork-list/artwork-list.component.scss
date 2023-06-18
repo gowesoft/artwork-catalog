@@ -1,0 +1,16 @@
+.artwork-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.logout-container {
+  width: 100%;
+  text-align: right;
+}
+
+.logout-button {
+  float: right;
+}
+
