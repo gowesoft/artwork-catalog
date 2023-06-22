@@ -1,0 +1,15 @@
+<div class="menu-container">
+  <p-menubar [model]="menuItems">
+    <ng-template pTemplate="start">
+      <span class="menu-title">Artwork Catalog</span>
+    </ng-template>
+    <ng-template pTemplate="end">
+      <li class="p-element p-menuitem">
+        <a class="p-ripple p-element p-menuitem-link">
+          <span class="p-menuitem-icon pi pi-sign-out" ng-reflect-ng-class="pi pi-sign-out"></span>
+          <span class="p-menuitem-text" (click)="onLogout()">Logout</span>
+        </a>
+      </li>
+    </ng-template>
+  </p-menubar>
+</div>

@@ -43,3 +43,13 @@ p-card-content {
   overflow: visible;
   text-overflow: initial;
 }
+
+.artwork-card.highlighted {
+  background-color: #f7f7f7;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  display: flex;
+  height: 20px;
+}

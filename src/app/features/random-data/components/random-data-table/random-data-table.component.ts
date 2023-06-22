@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class RandomDataTableComponent {
 
+  randomData: any[] = [];
+  columns: any[] = ['hola', 'hola2', 'hola3'];
+
+  constructor() {
+    this.generateRandomData();
+  }
+
+  generateRandomData() {
+    for (let i = 1; i <= 10; i++) {
+      this.randomData.push({
+        name: `Person ${i}`,
+        email: `person${i}@example.com`,
+        age: Math.floor(Math.random() * 50) + 20
+      });
+    }
+  }
+
 }

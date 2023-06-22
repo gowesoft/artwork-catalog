@@ -7,18 +7,15 @@ const routes: Routes = [
     loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
-  },
-  {
     path: '',
-    redirectTo: '',
-    pathMatch: 'full'
+    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
+    , pathMatch: 'full'
   },
   {
-    path: '**',
-    redirectTo: '',
-  }
+    path: 'random',
+    loadChildren: () => import('./features/random-data/random-data.module').then(m => m.RandomDataModule)
+  },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

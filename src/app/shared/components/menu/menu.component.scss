@@ -1,0 +1,37 @@
+.menu-container {
+  margin-bottom: 20px;
+}
+
+p-menubarsub {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.menu-item {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.menu-item:hover {
+  background-color: #f2f2f2;
+}
+
+.content-container {
+  margin-top: 20px;
+}
+
+.menu-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;  /* Aumenta el tamaño de la fuente */
+  font-weight: 700;  /* Hace que el texto sea más grueso */
+  color: #37474F;  /* Un color de texto oscuro para contrastar con el fondo */
+  text-transform: uppercase;  /* Convierte todo el texto a mayúsculas */
+  letter-spacing: 2px;  /* Espacio entre las letras para una apariencia más limpia */
+  margin: 0; /* Elimina el margen alrededor del texto */
+  padding: 20px 20px 0 0 ; /* Agrega un padding superior e inferior para dar más espacio alrededor del texto */
+}
+
+li.p-element.p-menuitem {
+  list-style-type: none;
+}

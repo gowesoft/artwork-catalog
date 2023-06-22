@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { filter, map, tap } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
 import { selectToken } from '../../features/auth/state/auth.selectors';
 import { of } from 'rxjs';
@@ -18,11 +18,17 @@ interface AuthResponse {
 })
 export class AuthService {
 
+  private authenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(
     private http: HttpClient,
     private store: Store,
     private router: Router
   ) { }
+
+  getAuthenticated(): Observable<boolean> {
+    return this.authenticated.asObservable();
+  }
 
   login(credentials: { username: string, password: string }): Observable<any> {
     const fakeApiResponse = { token: 'fake-token' };
@@ -32,6 +38,7 @@ export class AuthService {
         this.store.dispatch(login({ user: credentials.username, token: response.token }));
         localStorage.setItem('token', response.token);
         localStorage.setItem('user', credentials.username);
+        this.authenticated.next(true);
       })
     );
   }
@@ -48,15 +55,20 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     this.router.navigate(['/login']);
+    this.authenticated.next(false);
   }
 
-  getToken(credentials: { username: string, password: string }) {
-    return this.http.get<any>('https://fake-api.com/cd8befaf-9119-4379-b065-7845a416dc41/api/token')
-      .pipe(
-        tap(response => {
-          this.store.dispatch(login({ user: credentials.username, token: response.token }));
-        })
-      );
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  storeLogin(): void {
+    const user = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+    if (user && token) {
+      this.store.dispatch(login({ user, token }));
+      this.authenticated.next(true);
+    }
   }
 
 }

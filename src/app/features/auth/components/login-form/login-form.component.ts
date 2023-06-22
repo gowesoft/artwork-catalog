@@ -23,6 +23,10 @@ export class LoginFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (this.authService.getToken()) {
+      this.authService.storeLogin();
+      this.router.navigate(['/home']);
+    }
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(8)]]

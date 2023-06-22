@@ -11,12 +11,17 @@ import { ArtworkListComponent } from './components/artwork-list/artwork-list.com
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { ArtworkCardComponent } from './components/artwork-card/artwork-card.component';
 
+import { HighlightDirective } from '../../shared/directives/highlight.directive';
+import { UppercasePipe } from '../../shared/pipes/uppercase.pipe';
+
 
 @NgModule({
   declarations: [
     ArtworkListComponent,
     SearchBoxComponent,
-    ArtworkCardComponent
+    ArtworkCardComponent,
+    HighlightDirective,
+    UppercasePipe
   ],
   imports: [
     CommonModule,

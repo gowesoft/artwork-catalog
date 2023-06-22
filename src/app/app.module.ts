@@ -3,29 +3,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//PrimeNG
+import { MenubarModule } from 'primeng/menubar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HighlightDirective } from './shared/directives/highlight.directive';
-import { FormatDatePipe } from './shared/pipes/format-date.pipe';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { authReducer } from './features/auth/state/auth.reducer';
+import { MenuComponent } from './shared/components/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HighlightDirective,
-    FormatDatePipe
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}, {}),
+    MenubarModule,
+    StoreModule.forRoot({ auth: authReducer }, {}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

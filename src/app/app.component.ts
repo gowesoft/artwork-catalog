@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute  } from '@angular/router';
 
 import { login } from './features/auth/state/auth.actions';
 import { AuthService } from './core/services/auth.service';
@@ -12,20 +12,19 @@ import { AuthService } from './core/services/auth.service';
 })
 export class AppComponent implements OnInit {
 
+  isAuthenticated!: boolean;
+
   constructor(
-    private authService: AuthService,
-    private router: Router,
-    private store: Store
-  ) {}
+    private authService: AuthService
+  ) {
+    this.authService.getAuthenticated().subscribe((loggedIn) => {
+      this.isAuthenticated = loggedIn;
+    });
+  }
 
   ngOnInit() {
-    const user = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
-    if (user && token) {
-      this.store.dispatch(login({ user, token }));
-      this.router.navigate(['/home']);
-    } else {
-      this.router.navigate(['/login']);
+    if (this.authService.getToken()) {
+      this.authService.storeLogin();
     }
   }
 

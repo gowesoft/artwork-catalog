@@ -1,4 +1,4 @@
-<div class="artwork-card">
+<div class="artwork-card" appHighlight>
   <div class="artwork-card-content">
     <p-card [style]="{'margin-bottom':'20px'}">
       <ng-template pTemplate="header">
@@ -8,7 +8,7 @@
         <span class="truncated-text" [title]="artwork.title">{{ truncateText(artwork.title, 50) }}</span>
       </ng-template>
       <ng-template pTemplate="subtitle">
-        {{ artwork.artist_title }}
+        <span class="subtitle">{{ artwork.artist_title | uppercasePipe }}</span>
       </ng-template>
       <ng-template pTemplate="content">
         <p><strong>Origin:</strong> {{ artwork.place_of_origin }}</p>
