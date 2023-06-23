@@ -26,11 +26,14 @@ export class ArtworkCardComponent implements OnInit {
   }
 
   truncateText(text: string, maxLength: number): string {
-    if (text.length <= maxLength) {
-      return text;
-    } else {
-      return text.substr(0, maxLength) + '...';
+    if (text) {
+      if (text?.length <= maxLength) {
+        return text;
+      } else {
+        return text.substr(0, maxLength) + '...';
+      }
     }
+    return '';
   }
 
 }

@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { PaginatorModule } from 'primeng/paginator';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { ArtworkListComponent } from './components/artwork-list/artwork-list.component';
@@ -28,7 +30,9 @@ import { UppercasePipe } from '../../shared/pipes/uppercase.pipe';
     HomeRoutingModule,
     ButtonModule,
     CardModule,
-    InputTextModule
+    InputTextModule,
+    ProgressSpinnerModule,
+    PaginatorModule
   ]
 })
 export class HomeModule { }

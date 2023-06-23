@@ -12,8 +12,8 @@ export class ArtworkService {
 
   constructor(private http: HttpClient) { }
 
-  getArtworks(searchTerm: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}?q=${searchTerm}&fields=id,title,artist_title,place_of_origin,date_display,thumbnail,image_id`);
+  getArtworks(searchTerm: string, page: number, limit: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}?q=${searchTerm}&page=${page}&limit=${limit}&fields=id,title,artist_title,place_of_origin,date_display,thumbnail,image_id`);
   }
 
   getImageUrl(imageId: string): string {

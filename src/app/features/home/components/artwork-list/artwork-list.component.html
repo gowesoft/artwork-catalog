@@ -1,4 +1,22 @@
 <app-search-box (search)="onSearch($event)"></app-search-box>
-<div class="artwork-list">
+
+<ng-container *ngIf="loading">
+  <p-progressSpinner class="loading-spinner" [style]="{ 'width.px': 100, 'height.px': 100 }" strokeWidth="4"></p-progressSpinner>
+</ng-container>
+
+<ng-container *ngIf="!loading && artworks.length === 0">
+  <div class="no-results-icon">
+    <i class="pi pi-times-circle" style="font-size: 2.5rem"></i>
+  </div>
+  <div class="no-results-message">No se encontraron resultados</div>
+</ng-container>
+
+<div class="artwork-list" *ngIf="!loading && artworks.length > 0">
   <app-artwork-card *ngFor="let artwork of artworks" [artwork]="artwork"></app-artwork-card>
 </div>
+<p-paginator
+  [class.hidden]="loading"
+  [rows]="limit"
+  [totalRecords]="totalRecords"
+  (onPageChange)="getArtworks($event)">
+</p-paginator>

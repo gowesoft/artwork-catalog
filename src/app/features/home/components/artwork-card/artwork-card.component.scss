@@ -20,8 +20,8 @@ p-card-content {
 }
 
 .artwork-thumbnail {
-  width: 700px;
-  height: 600px;
+  width: 400px;
+  height: 400px;
   object-fit: cover;
 }
 
@@ -53,3 +53,21 @@ p-card-content {
   display: flex;
   height: 20px;
 }
+
+p {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+strong {
+  margin-right: 10px;
+}
+
+.truncated-date {
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+

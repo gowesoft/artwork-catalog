@@ -11,8 +11,11 @@ import { ArtworkService } from '../../../../core/services/artwork.service';
 export class ArtworkListComponent implements OnInit {
 
   artworks: any[] = [];
-  filteredArtworks: any[] = [];
   searchTerm: string = '';
+  loading: boolean = false;
+  page: number = 1;
+  limit: number = 12;
+  totalRecords: number = 0;
 
   constructor(
     private authService: AuthService,
@@ -25,29 +28,24 @@ export class ArtworkListComponent implements OnInit {
 
   onSearch(value: string): void {
     this.searchTerm = value;
-    this.getArtworks();
+    this.page = 1;
+    this.getArtworks(null);
   }
 
-  getArtworks() {
-    this.artworkService.getArtworks(this.searchTerm).subscribe({
+  getArtworks(event?: any) {
+    this.loading = true;
+    this.page = event?.page ? event.page : this.page;
+    this.limit = event?.rows ? event.rows : this.limit;
+    this.artworkService.getArtworks(this.searchTerm, this.page, this.limit).subscribe({
       next: data => {
         this.artworks = data.data;
-        this.filterArtworks();
+        this.totalRecords = data.pagination.total;
       },
       error: error => {
         console.error('Error: ' + error);
-      }}
-    );
-  }
-
-  filterArtworks(): void {
-    if (this.searchTerm) {
-      this.filteredArtworks = this.artworks.filter(artwork =>
-        artwork.title.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    } else {
-      this.filteredArtworks = this.artworks;
-    }
+      },
+      complete: () => this.loading = false
+    });
   }
 
   onLogout(): void {

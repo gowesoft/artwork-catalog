@@ -14,3 +14,34 @@
   float: right;
 }
 
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.no-results-message {
+  color: #37474F;
+  font-family: Roboto;
+  font-size: 22px;
+  text-align: center;
+}
+
+.no-results-icon {
+  color: #37474F;
+  text-align: center;
+  margin: 200px 0 20px 0;
+}
+
+.no-results-container {
+  margin-top: 20px;
+}
+
+.no-results-container .p-message {
+  width: 300px;
+}
+
+.hidden {
+  display: none;
+}
