@@ -34,7 +34,7 @@ export class ArtworkListComponent implements OnInit {
 
   getArtworks(event?: any) {
     this.loading = true;
-    this.page = event?.page ? event.page : this.page;
+    this.page = event?.page !== undefined ? event.page + 1 : this.page;
     this.limit = event?.rows ? event.rows : this.limit;
     this.artworkService.getArtworks(this.searchTerm, this.page, this.limit).subscribe({
       next: data => {
