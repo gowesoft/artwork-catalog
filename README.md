@@ -13,7 +13,7 @@ You will need the following tools installed on your machine:
 
 First, clone the repository to your local machine:
 
-`sh git clone https://github.com/your-username/artwork-catalog.git`
+`git clone https://github.com/gowesoft/artwork-catalog.git`
 
 Navigate to the project directory:
 
