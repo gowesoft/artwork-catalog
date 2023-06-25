@@ -10,9 +10,9 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { MessagesModule } from 'primeng/messages';
 import { MessageService } from 'primeng/api';
 
-import { AuthRoutingModule } from './auth-routing.module';
-import { LoginFormComponent } from './components/login-form/login-form.component';
-import { authReducer } from './state/auth.reducer';
+import { AuthRoutingModule } from '@features/auth/auth-routing.module';
+import { LoginFormComponent } from '@features/auth/components/login-form/login-form.component';
+import { authReducer } from '@features/auth/state/auth.reducer';
 
 
 @NgModule({

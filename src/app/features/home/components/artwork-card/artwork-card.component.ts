@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Artwork } from '../../../../models/artwork.model';
-import { ArtworkService } from '../../../../core/services/artwork.service';
+
+import { Artwork } from '@models/artwork.model';
+import { ArtworkService } from '@core/services/artwork.service';
 
 @Component({
   selector: 'app-artwork-card',

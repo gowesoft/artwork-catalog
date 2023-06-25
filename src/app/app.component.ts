@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Router, ActivatedRoute  } from '@angular/router';
 
-import { login } from './features/auth/state/auth.actions';
-import { AuthService } from './core/services/auth.service';
+import { AuthService } from '@core/services/auth.service';
 
 @Component({
   selector: 'app-root',

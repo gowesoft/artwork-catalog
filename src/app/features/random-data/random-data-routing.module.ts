@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RandomDataTableComponent } from './components/random-data-table/random-data-table.component';
-import { AuthGuard } from 'src/app/core/guards/auth.guard';
+
+import { RandomDataTableComponent } from '@features/random-data/components/random-data-table/random-data-table.component';
+import { AuthGuard } from '@core/guards/auth.guard';
 
 const routes: Routes = [
   {

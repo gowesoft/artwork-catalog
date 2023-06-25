@@ -1,13 +1,12 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { filter, map, tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
-import { selectToken } from '../../features/auth/state/auth.selectors';
 import { of } from 'rxjs';
-
-import { login, logout } from '../../features/auth/state/auth.actions';
 import { Router } from '@angular/router';
+
+import { selectToken } from '@features/auth/state/auth.selectors';
+import { login, logout } from '@features/auth/state/auth.actions';
 
 interface AuthResponse {
   token: string;
@@ -21,7 +20,6 @@ export class AuthService {
   private authenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
-    private http: HttpClient,
     private store: Store,
     private router: Router
   ) { }

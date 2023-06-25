@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '../../core/guards/auth.guard';
-import { ArtworkListComponent } from './components/artwork-list/artwork-list.component';
+
+import { AuthGuard } from '@core/guards/auth.guard';
+import { ArtworkListComponent } from '@features/home/components/artwork-list/artwork-list.component';
 
 const routes: Routes = [
   {

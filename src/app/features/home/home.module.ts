@@ -8,13 +8,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { PaginatorModule } from 'primeng/paginator';
 
-import { HomeRoutingModule } from './home-routing.module';
-import { ArtworkListComponent } from './components/artwork-list/artwork-list.component';
-import { SearchBoxComponent } from './components/search-box/search-box.component';
-import { ArtworkCardComponent } from './components/artwork-card/artwork-card.component';
+import { HomeRoutingModule } from '@features/home/home-routing.module';
+import { ArtworkListComponent } from '@features/home/components/artwork-list/artwork-list.component';
+import { SearchBoxComponent } from '@features/home/components/search-box/search-box.component';
+import { ArtworkCardComponent } from '@features/home/components/artwork-card/artwork-card.component';
 
-import { HighlightDirective } from '../../shared/directives/highlight.directive';
-import { UppercasePipe } from '../../shared/pipes/uppercase.pipe';
+import { HighlightDirective } from '@shared/directives/highlight.directive';
+import { UppercasePipe } from '@shared/pipes/uppercase.pipe';
 
 
 @NgModule({

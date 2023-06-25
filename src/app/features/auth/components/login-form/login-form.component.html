@@ -1,6 +1,9 @@
 <div class="container">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-    <p-fieldset legend="Artwork Catalog">
+    <div class="logo-container">
+      <img src="assets/images/logo.png" alt="Artwork Catalog" class="logo"/>
+    </div>
+    <p-fieldset class="fieldset-logo" legend="Artwork Catalog">
       <p-messages></p-messages>
       <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-12 p-md-6">

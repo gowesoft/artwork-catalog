@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AuthService } from '../../../../core/services/auth.service';
-import { ArtworkService } from '../../../../core/services/artwork.service';
+import { AuthService } from '@core/services/auth.service';
+import { ArtworkService } from '@core/services/artwork.service';
 
 @Component({
   selector: 'app-artwork-list',

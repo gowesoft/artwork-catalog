@@ -37,3 +37,14 @@
     font-size: 0.8rem;
   }
 }
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 70px;
+  height: auto;
+}
