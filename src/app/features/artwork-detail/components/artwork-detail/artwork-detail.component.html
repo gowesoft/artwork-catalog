@@ -1,0 +1,41 @@
+<ng-container *ngIf="loading; else artworkContent">
+  <p-progressSpinner class="loading-spinner" [style]="{ 'width.px': 100, 'height.px': 100 }" strokeWidth="4"></p-progressSpinner>
+</ng-container>
+<ng-template #artworkContent>
+  <div class="artwork-detail-container">
+    <p-card class="artwork-detail-card">
+      <ng-template pTemplate="header">
+        <div class="artwork-detail-title">{{ artwork.data.title }}</div>
+      </ng-template>
+      <div class="artwork-detail-content">
+        <img class="artwork-detail-image" [src]="imageUrl" onError="this.src='https://mocra.org/wp-content/uploads/2016/07/default.jpg'">
+        <div class="artwork-detail-texts">
+          <p class="artwork-detail-text">
+            <strong class="strong-text">Artist: </strong>
+            <span>{{ artwork.data.artist_display }}</span>
+          </p>
+          <p class="artwork-detail-text">
+            <strong class="strong-text">Origin: </strong>
+            <span>{{ artwork.data.place_of_origin }}</span>
+          </p>
+          <p class="artwork-detail-text">
+            <strong class="strong-text">Date: </strong>
+            <span>{{ artwork.data.date_display }}</span>
+          </p>
+          <p class="artwork-detail-text">
+            <strong class="strong-text">Dimensions: </strong>
+            <span>{{ artwork.data.dimensions }}</span>
+          </p>
+          <p class="artwork-detail-text">
+            <strong class="strong-text">Medium: </strong>
+            <span>{{ artwork.data.medium_display }}</span>
+          </p>
+          <p class="artwork-detail-text">
+            <strong class="strong-text">Credit Line: </strong>
+            <span>{{ artwork.data.credit_line }}</span>
+          </p>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</ng-template>

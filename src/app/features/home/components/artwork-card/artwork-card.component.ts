@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Artwork } from '@models/artwork.model';
 import { ArtworkService } from '@core/services/artwork.service';
@@ -15,7 +16,8 @@ export class ArtworkCardComponent implements OnInit {
   imageUrl!: string;
 
   constructor(
-    private artworkService: ArtworkService
+    private artworkService: ArtworkService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,10 @@ export class ArtworkCardComponent implements OnInit {
       }
     }
     return '';
+  }
+
+  navigateToArtworkDetail(id: string, imageId: string) {
+    this.router.navigate(['/artwork-detail', id, imageId]);
   }
 
 }

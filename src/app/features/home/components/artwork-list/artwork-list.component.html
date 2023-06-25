@@ -16,6 +16,7 @@
 </div>
 
 <p-paginator
+  *ngIf="artworks.length"
   [class.hidden]="loading"
   [rows]="limit"
   [totalRecords]="totalRecords"

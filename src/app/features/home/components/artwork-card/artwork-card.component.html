@@ -1,4 +1,4 @@
-<div class="artwork-card" appHighlight>
+<div class="artwork-card" appHighlight (click)="navigateToArtworkDetail(artwork.id, artwork.image_id)">
   <div class="artwork-card-content">
     <p-card [style]="{'margin-bottom':'20px'}">
       <ng-template pTemplate="header">
@@ -17,7 +17,7 @@
         </p>
         <p>
           <strong>Date:</strong>
-          <span class="truncated-date" [title]="artwork.date_display">{{  truncateText(artwork.date_display, 44) }}</span>
+          <span class="truncated-date" [title]="artwork.date_display">{{  truncateText(artwork.date_display, 40) }}</span>
         </p>
       </ng-template>
     </p-card>
